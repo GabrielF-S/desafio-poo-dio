@@ -1,10 +1,11 @@
 package org.desafio_dio;
 
-import org.desafio_dio.domain.Conteudo;
-import org.desafio_dio.domain.Curso;
-import org.desafio_dio.domain.Mentoria;
+import org.desafio_dio.domain.*;
 
+import java.lang.reflect.Array;
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -29,11 +30,41 @@ public class Main {
         mentoria2.setData(LocalDate.now().plusDays(1L));
 
 
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bootcamp Java Developer");
+        bootcamp.setDescricao("Descricao Bootcamp Java Developer");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria1);
+        bootcamp.getConteudos().add(mentoria2);
 
 
-        System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria1);
-        System.out.println(mentoria2);
+        Dev devGabs = new Dev();
+        devGabs.setNome("Gabriel");
+        devGabs.inscreverBootcamp(bootcamp);
+        System.out.println("Conteudos inscritos: " + devGabs.getConteudosInscritos());
+        System.out.println("*****".repeat(5));
+        devGabs.progredir();
+        System.out.println("Conteudos inscritos: " + devGabs.getConteudosInscritos());
+        System.out.println("Conteudos concluidos: " + devGabs.getConteudosConcluidos());
+        System.out.println( "XP adquirido: " + devGabs.calcularTotalXP());
+
+        System.out.println("*****".repeat(10));
+
+        Dev devCamila = new Dev();
+        devCamila.setNome("Camila");
+        devCamila.inscreverBootcamp(bootcamp);
+        System.out.println("Conteudos inscritos: " + devCamila.getConteudosInscritos());
+        devCamila.progredir();
+        devCamila.progredir();
+        devCamila.progredir();
+        devCamila.progredir();
+        System.out.println("*****".repeat(5));
+        System.out.println("Conteudos inscritos: " + devCamila.getConteudosInscritos());
+        System.out.println("Conteudos concluidos: " + devCamila.getConteudosConcluidos());
+        System.out.println( "XP adquirido: " + devCamila.calcularTotalXP());
+
+
+
     }
 }
