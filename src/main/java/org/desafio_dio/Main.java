@@ -1,5 +1,6 @@
 package org.desafio_dio;
 
+import org.desafio_dio.domain.Conteudo;
 import org.desafio_dio.domain.Curso;
 import org.desafio_dio.domain.Mentoria;
 
@@ -22,10 +23,17 @@ public class Main {
         mentoria1.setDescricao("Descricao mentoria Java");
         mentoria1.setData(LocalDate.now());
 
+        Mentoria mentoria2 = new Mentoria();
+        mentoria2.setTitulo("Mentoria javascript");
+        mentoria2.setDescricao("Descricao mentoria javascript");
+        mentoria2.setData(LocalDate.now().plusDays(1L));
+
+
 
 
         System.out.println(curso1);
         System.out.println(curso2);
         System.out.println(mentoria1);
+        System.out.println(mentoria2);
     }
 }
